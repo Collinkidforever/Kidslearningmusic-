@@ -64,6 +64,7 @@
         <a href="#ourstory" onclick="showSection('ourstory')">Our Story</a>
         <a href="#benefits" onclick="showSection('benefits')">Benefits</a>
         <a href="#lessons" onclick="showSection('lessons')">Lessons</a>
+        <a href="#quiz" onclick="showSection('quiz')">Quiz</a>
         <a href="#contact" onclick="showSection('contact')">Contact</a>
     </nav>
     <section id="introduction" class="active">
@@ -96,11 +97,25 @@
             <li>Vocal Training</li>
         </ul>
     </section>
+    <section id="quiz">
+        <h2>Music Quiz</h2>
+        <form id="quizForm">
+            <label for="question1">What is the first note of a C major scale?</label><br>
+            <input type="radio" id="c" name="question1" value="C">
+            <label for="c">C</label><br>
+            <input type="radio" id="d" name="question1" value="D">
+            <label for="d">D</label><br>
+            <input type="radio" id="e" name="question1" value="E">
+            <label for="e">E</label><br>
+            <button type="button" onclick="checkQuiz()">Submit</button>
+        </form>
+        <p id="quizResult"></p>
+    </section>
     <section id="contact">
         <h2>Contact Us</h2>
         <p>If you have any questions or would like to enroll your child in our music program, please reach out to us:</p>
         <p>Email: info@kidslearningmusic.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Phone: 206-356-9148</p>
     </section>
     <footer>
         <p>&copy; 2024 Kids Learning Music. All rights reserved.</p>
@@ -112,6 +127,16 @@
                 section.classList.remove('active');
             });
             document.getElementById(sectionId).classList.add('active');
+        }
+
+        function checkQuiz() {
+            var answer = document.querySelector('input[name="question1"]:checked').value;
+            var result = document.getElementById("quizResult");
+            if (answer === "C") {
+                result.textContent = "Correct!";
+            } else {
+                result.textContent = "Wrong! Try again.";
+            }
         }
     </script>
 </body>
